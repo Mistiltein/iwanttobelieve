@@ -1,7 +1,6 @@
 package com.iwanttobelieve.app.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.iwanttobelieve.app.data.model.User
 import kotlinx.coroutines.tasks.await
@@ -13,11 +12,6 @@ class AuthRepository {
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-
-    /**
-     * Retorna o usuário Firebase atual (ou null)
-     */
-    fun getCurrentFirebaseUser(): FirebaseUser? = auth.currentUser
 
     /**
      * Login com email e senha
@@ -46,7 +40,7 @@ class AuthRepository {
     }
 
     /**
-     * Cadastro + criação automática do documento na coleção "users" (requisito do trabalho)
+     * Cadastro + criação automática do documento na coleção "users"
      */
     suspend fun register(nome: String, email: String, password: String): Result<User> {
         return try {
@@ -79,10 +73,4 @@ class AuthRepository {
         auth.signOut()
     }
 
-    /**
-     * Verifica se existe usuário logado
-     */
-    fun isUserLoggedIn(): Boolean {
-        return auth.currentUser != null
-    }
 }

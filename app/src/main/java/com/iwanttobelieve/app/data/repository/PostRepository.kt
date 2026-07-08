@@ -23,7 +23,6 @@ class PostRepository {
 
     /**
      * Cria uma nova publicação com imagem
-     * (Requisito principal do trabalho)
      */
     suspend fun createPost(descricao: String, imageUri: Uri): Result<Post> {
         return try {

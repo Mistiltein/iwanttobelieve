@@ -13,7 +13,7 @@ data class Post(
     val id: String = "",
 
     val uid: String = "",           // ID do autor
-    val nomeAutor: String = "",     // Nome do autor (denormalizado para facilitar exibição)
+    val nomeAutor: String = "",     // Nome do autor
 
     val descricao: String = "",
     val imageUrl: String = "",
